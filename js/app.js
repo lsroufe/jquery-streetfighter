@@ -27,19 +27,7 @@ $(document).ready(function() {
 			$('.ryu-throwing').hide();
 			$('.ryu-ready').show();
 		});
-		// .keydown(function (e) {
-		// 	if (e.which === 88) {
-		// 		$('.ryu-cool').show();
-		// 		$('.ryu-still').hide();
-		// 	}
-		// })
-		// .keyup(function (e) {
-		// 	if (e.which === 88) {
-		// 		$('.ryu-cool').hide();
-		// 		$('.ryu-still').show();
-		// 	}
-		// })
-		$('.hulk-ryu')
+	$('.hulk-ryu')
 		.mouseenter(function() {
 			$('.hulk-ryu-still').hide();
 			$('.hulk-ryu-ready').show();
@@ -68,6 +56,38 @@ $(document).ready(function() {
 			$('.hulk-ryu-ready').show();
 		});
 });
+
+$(document).keydown(function(e) {
+    if (e.keyCode == 88) {
+      playCool();
+      $('.ryu-ready').hide();
+      $('.ryu-still').hide();
+      $('.ryu-cool').show();
+    }   
+  }).keyup(function(e) {
+    if (e.keyCode == 88) {
+      $('#cool')[0].pause();
+      $('#cool')[0].load();
+      $('.ryu-cool').hide();
+      $('.ryu-still').show();
+    }
+  });
+
+  $(document).keydown(function(e) {
+    if (e.keyCode == 88) {
+      playCool();
+      $('.hulk-ryu-ready').hide();
+      $('.hulk-ryu-still').hide();
+      $('.hulk-ryu-cool').show();
+    }   
+  }).keyup(function(e) {
+    if (e.keyCode == 88) {
+      $('#cool')[0].pause();
+      $('#cool')[0].load();
+      $('.hulk-ryu-cool').hide();
+      $('.hulk-ryu-still').show();
+    }
+  });
 
 function playHadouken () {
 	$('#hadouken-sound')[0].volume = 0.5;
