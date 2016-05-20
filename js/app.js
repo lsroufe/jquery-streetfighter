@@ -57,25 +57,21 @@ $(document).ready(function() {
 		});
 });
 
+var coolSound = false;
+function playCool () {
+  coolSound = !coolSound;
+  if (coolSound) {
+    $('#cool')[0].play();
+    $('#cool')[0].volume = 0.5;
+  }
+}
+
 $(document).keydown(function(e) {
     if (e.keyCode == 88) {
       playCool();
       $('.ryu-ready').hide();
       $('.ryu-still').hide();
       $('.ryu-cool').show();
-    }   
-  }).keyup(function(e) {
-    if (e.keyCode == 88) {
-      $('#cool')[0].pause();
-      $('#cool')[0].load();
-      $('.ryu-cool').hide();
-      $('.ryu-still').show();
-    }
-  });
-
-  $(document).keydown(function(e) {
-    if (e.keyCode == 88) {
-      playCool();
       $('.hulk-ryu-ready').hide();
       $('.hulk-ryu-still').hide();
       $('.hulk-ryu-cool').show();
@@ -84,6 +80,8 @@ $(document).keydown(function(e) {
     if (e.keyCode == 88) {
       $('#cool')[0].pause();
       $('#cool')[0].load();
+      $('.ryu-cool').hide();
+      $('.ryu-still').show();
       $('.hulk-ryu-cool').hide();
       $('.hulk-ryu-still').show();
     }
